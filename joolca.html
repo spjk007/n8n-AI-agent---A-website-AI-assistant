@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joolca - Premium Outdoor Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .features {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .products {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features h2, .products h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Custom N8N Chat Widget Styling - Royal Blue Theme */
+        :root {
+            --chat--color--primary: #4169E1;
+            --chat--color--primary-shade-50: #3A5FCC;
+            --chat--color--primary--shade-100: #3355B8;
+            --chat--color--secondary: #4169E1;
+            --chat--color-secondary-shade-50: #3A5FCC;
+            --chat--toggle--background: #4169E1;
+            --chat--toggle--hover--background: #3A5FCC;
+            --chat--toggle--active--background: #3355B8;
+            --chat--header--background: #4169E1;
+            --chat--message--user--background: #4169E1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">JOOLCA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Adventure Awaits with Joolca</h1>
+        <p>Premium outdoor products for your next adventure</p>
+        <a href="#products" class="cta-button">Explore Products</a>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Why Choose Joolca?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏕️</div>
+                <h3>Outdoor Excellence</h3>
+                <p>Designed for adventurers who demand the best quality and reliability in every situation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Innovative Design</h3>
+                <p>Cutting-edge technology meets practical functionality in every product we create.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Eco-Friendly</h3>
+                <p>Committed to sustainability and minimizing our environmental footprint.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">🚿</div>
+                <div class="product-info">
+                    <h3>Portable Hot Water System</h3>
+                    <p>Instant hot water anywhere you go. Perfect for camping and outdoor adventures.</p>
+                    <div class="price">$499</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🔥</div>
+                <div class="product-info">
+                    <h3>Camping Heater</h3>
+                    <p>Stay warm in any weather with our efficient portable heating solution.</p>
+                    <div class="price">$349</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">⛺</div>
+                <div class="product-info">
+                    <h3>Outdoor Shower Kit</h3>
+                    <p>Complete shower system with privacy tent and accessories included.</p>
+                    <div class="price">$279</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <p>&copy; 2024 Joolca. All rights reserved.</p>
+        <p>Contact: info@joolca.com | +1 (555) 123-4567</p>
+    </footer>
+
+    <script type="module">
+        // Suppress ResizeObserver errors (harmless browser warning)
+        window.addEventListener('error', (e) => {
+            if (e.message === 'ResizeObserver loop completed with undelivered notifications.' ||
+                e.message === 'ResizeObserver loop limit exceeded') {
+                e.stopImmediatePropagation();
+            }
+        });
+
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://spjk007.app.n8n.cloud/webhook/34661e4d-d493-4fe0-a0b4-58fcea5776b9/chat',
+            initialMessages: [
+                'Hi there! 👋 My name is Dokja, your Joolca assistant. How can I help you today?'
+            ],
+            mode: 'window',
+            showWelcomeScreen: false,
+        });
+    </script>
+</body>
+</html>
