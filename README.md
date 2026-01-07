@@ -3,12 +3,19 @@ Website AI Assistant:
 Tech Stack:
 
 -n8n =>Workflow
+
 -pinecone =>RAG Response AI Assistant
+
 -SupaBase =>PostgreSQL username and password creation for credentials.
+
 -chatgpt =>Debugging
+
 -Claude AI =>Website Creation
+
 -perplexity AI =>API keys for Product related questions
+
 -cohere => For chat model API key
+
 -https://www.oxaam.com/ => for getting free perplexity MAX account to get the API keys for free with no cost
 
 Youtube Video Tutorial Used:
